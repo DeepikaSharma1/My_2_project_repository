@@ -1,0 +1,83 @@
+
+<div class="container">
+    <h1 style="text-align: center;">WELCOME TO HOME PAGE {{ loggedInUser.username }}</h1>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-primary" ng-click="#!/logout">Logout</a>
+    <hr>
+    <div class="container" ng-show="loggedInUser.role == 'ADMIN'">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <a href="#!/manageUsers" class="btn btn-info btn-block">Manage Users</a>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <a href="#!/manageBlogs" class="btn btn-info btn-block">Manage Blog(s)</a>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            	<a href="#!/manageJobs" class="btn btn-info btn-block">Post Job(s)</a>
+            </div>
+        </div>
+    </div>
+	<hr>
+    <div class="container-fluid">
+		<div class="row" ng-hide="loggedInUser.username == 'undefined'">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left">
+				<a href="#!/profile" class="btn btn-info">Profile</a>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
+				<a href="#!/groupChat" class="btn btn-primary">Chat</a>
+			</div>
+		</div>
+		<hr>
+        <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">Blogs</h3>
+                      </div>
+                      <div class="panel-body">
+                            <a href="#!/viewBlogs" class="btn btn-link btn-block">View All Blogs</a>
+                            <br><br>
+                            <a href="#!/newBlog" class="btn btn-link btn-block">Create Blog(s)</a>
+                      </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">Events</h3>
+                      </div>
+                      <div class="panel-body">
+                            <a href="#!/viewEvents" class="btn btn-link btn-block">View All Events</a>
+                            <br><br>
+                            <a href="#!/createEvent" class="btn btn-link btn-block">Create Event</a>
+                      </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">Jobs</h3>
+                      </div>
+                      <div class="panel-body">
+                            <a href="#!/viewJobs" class="btn btn-link btn-block">View All Jobs</a>
+                            <br><br>
+                            <a href="#!/jobsApplied" class="btn btn-link btn-block">View Applied Jobs</a>
+                      </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">Friends</h3>
+                      </div>
+                      <div class="panel-body">
+                            <a href="#!/viewFriends" class="btn btn-link btn-block">View All Friends</a>
+                            <br><br>
+                            <a href="#!/searchFriends" class="btn btn-link btn-block">Find Friends</a>
+                            <br><br>
+                            <a href="#!/viewFriendRequests" class="btn btn-link btn-block">Friend Requests</a>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+
+<div class="container">
+	<h2 style="text-align: center;"> {{ selectedBlog.title }} <span style="text-align: right;">Created By: {{ selectedBlog.user.username | uppercase }}</span></h2>
+	<form editable-form class="form-horizontal" name="form" onaftersave="vm.updateBlog(selectedBlog)">
+		<div class="form-group">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<span class="title">Blog Title: </span>
+			</div>
+			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+				<span editable-text="selectedBlog.title" e-name="title" onbeforesave="checkTitle($data)" e-required>{{ selectedBlog.title || 'empty' }}</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<span class="title">Blog Description: </span>
+			</div>
+			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+				<span editable-textarea="selectedBlog.description" e-rows="7" e-cols="40" e-name="description" onbeforesave="checkContent($data)" e-required>{{ selectedBlog.description || 'empty' }}</span>
+			</div>
+		</div>
+		<div class="buttons" ng-show="loggedInUser.userId == selectedBlog.user.userId">
+			<button type="button" class="btn btn-default" ng-click="form.$show()" ng-show="!form.$visible">Edit</button>
+			<!-- buttons to submit / cancel form -->
+			<span ng-show="form.$visible">
+				<button type="submit" class="btn btn-primary" ng-disabled="form.$waiting">Save</button>
+				<button type="button" class="btn btn-default" ng-disabled="form.$waiting" ng-click="form.$cancel()">Cancel</button>
+			</span>
+		</div>
+	</form>
+</div>

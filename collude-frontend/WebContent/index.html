@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MainApp">
+    <head>
+        <title>Collaboration Platform</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.6.0/css/xeditable.min.css">
+        <link rel="shortcut icon" href="">
+        <style>
+            #mainView {
+                margin-top: 60px;
+            }
+
+            .panel-title {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+    	<div ng-include="'c_common/header.html'"></div>
+        <div class="container-fluid">
+            <div class="jubmotron" id="mainView">
+                <div ng-class="{ 'alert': flashMsg, 'alert-success': flashMsg.type === 'success', 'alert-danger': flashMsg.type === 'error' }" ng-if="flashMsg" ng-bind="flashMsg.message"></div>
+                <div ng-view></div>
+            </div>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.6.1/angular-route.min.js"></script>
+        <script src="https://code.angularjs.org/1.6.1/angular-cookies.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.6.0/js/xeditable.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+        <!-- main script -->
+        <script src="app.js"></script>
+        <!-- JavaScripts containing Controllers -->
+        <script src="c_controllers/AdminController.js"></script>
+        <script src="c_controllers/AuthController.js"></script>
+        <script src="c_controllers/BlogController.js"></script>
+        <script src="c_controllers/HomeController.js"></script>
+        <script src="c_controllers/RegController.js"></script>
+        <script src="c_controllers/GroupChatController.js"></script>
+        <script src="c_controllers/PrivateChatController.js"></script>
+        <script src="c_controllers/EventController.js"></script>
+        <script src="c_controllers/JobController.js"></script>
+        <script src="c_controllers/FriendController.js"></script>
+        <!-- JavaScripts containing Services -->
+        <script src="c_services/AuthService.js"></script>
+        <script src="c_services/BlogService.js"></script>
+        <script src="c_services/JobService.js"></script>
+        <script src="c_services/MsgService.js"></script>
+        <script src="c_services/UserService.js"></script>
+        <script src="c_services/EventService.js"></script>
+        <script src="c_services/GrChatService.js"></script>
+        <script src="c_services/PrChatService.js"></script>
+        <script src="c_services/FriendService.js"></script>
+    </body>
+</html>

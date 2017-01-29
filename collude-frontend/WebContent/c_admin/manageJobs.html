@@ -1,0 +1,68 @@
+<div class="container-fluid">
+
+    <form method="POST" class="form-horizontal" role="form" name="form" ng-submit="vm.createJob(vm.job)">
+        <div class="row form-group" ng-class="{ 'has-error' : form.title.$dirty && form.title.$error.required }">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <label for="title">Job Title: </label>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <input type="text" name="title" ng-model="vm.job.title" required>
+            </div>
+        </div>
+        <div class="row form-group" ng-class="{ 'has-error' : form.description.$dirty && form.description.$error.required }">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <label for="description">Job Description: </label>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <input type="text" name="description" ng-model="vm.job.description" required>
+            </div>
+        </div>
+        <div class="row form-group" ng-class="{ 'has-error' : form.qualification.$dirty && form.qualification.$error.required }">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <label for="qualification">Job Qualification: </label>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <input type="text" name="qualification" ng-model="vm.job.qualification" required>
+            </div>
+        </div>
+        <div class="row form-group" ng-class="{ 'has-error' : form.location.$dirty && form.location.$error.required }">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <label for="location">Job Location: </label>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <input type="text" name="location" ng-model="vm.job.location" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2" ng-show="vm.job.jobId == 'undefined'">
+                <a class="btn btn-primary" ng-submit="vm.createJob(vm.job)">Post</a>
+            </div>
+            <div class="col-sm-10 col-sm-offset-2" ng-hide="vm.job.jobId == 'undefined'">
+                <a class="btn btn-primary" ng-submit="vm.updateJob(vm.job)">Update</a>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Job Id</th>
+                <th>Job Title</th>
+                <th>Description</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="job in vm.jobs">
+                <td>{{ job.userId }}</td>
+                <td>{{ job.username }}</td>
+                <td>{{ job.email }}</td>
+                <td>{{ job.role }}</td>
+                <td>
+                    <a ng-click="vm.edit(job.jobId)" class="btn btn-success">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Blog Id</th>
+                <th>Blog Title</th>
+                <th>Description</th>
+                <th>Creator's Name</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="blog in vm.blogs">
+                <td>{{ blog.blogId }}</td>
+                <td>{{ blog.title }}</td>
+                <td>{{ blog.description }}</td>
+                <td>{{ blog.user.username }}</td>
+                <td>
+                    <a ng-click="vm.acceptBlog(blog)" class="btn btn-success" ng-disable="blog.status == 'APPROVED'">Accept</a>
+                </td>
+                <td>
+                    <a ng-click="vm.rejectBlog(blog)" class="btn btn-danger">Reject</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

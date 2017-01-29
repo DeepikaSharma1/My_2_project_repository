@@ -1,0 +1,19 @@
+
+<div class="container-fluid">
+    <span style="font-size: 10px; text-align: center;">Click On Blog Title To View Details</span>
+    <br><br>
+    <div class="col-offset-2 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <div class="panel panel-info" ng-repeat="blog in vm.approvedBlogs">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="font-size: 14px;">
+                    <a href="" class="btn btn-link" ng-click="vm.getBlogDetails(blog.blogId)">{{ blog.title }}</a>
+                </h3>
+            </div>
+            <div class="panel-body">
+            	<span class="pull-right" style>Created By: {{ blog.user.username | uppercase }}</span>
+            	<hr>
+                <p class="pull-left">{{ blog.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
